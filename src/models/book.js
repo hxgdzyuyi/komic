@@ -1,5 +1,4 @@
 import { Model } from 'backbone'
-import _ from 'mod/utils'
 
 export default Model.extend({
 
@@ -22,22 +21,6 @@ export default Model.extend({
     return Object.assign({
       src: cover.src
     }, this.getBookCoverSize())
-  }
-
-, getCurrentImageUri(page) {
-    var { src } = this.getCurrentImage(page)
-    return src
-  }
-
-, getNaturalAverageDiagonal() {
-    var images = this.get('images')
-      , number = images.length
-      , sum = _.reduce(images, (memo, image) => {
-          var diagonal = _.rectangleDiagonal(image.width, image.height)
-          return memo + diagonal
-        }, 0)
-
-    return sum / number
   }
 
 , getCurrentImage(page) {
